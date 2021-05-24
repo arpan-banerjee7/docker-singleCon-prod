@@ -1,68 +1,39 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Developed using Docker for Windows running on WSL2 backend. So all the below steps are written as per that.
 
-In the project directory, you can run:
+## Steps to run this project in Production Mode
+1. Download and configure Docker
+2. Navigate to the root directory of the project
+3. **Run-** `docker build .`
+4. **Run-** `docker run -p 8080:80 [the image id here]`
 
-### `npm start`
+## Steps to run this project in Developemnet Mode, with hot reloads using docker volumes
+**When using WSL2 as a backend for Docker Desktop, the project should be created on or copied directly to the Linux file system. If the project is on the Windows file system, the volumes will likely not work. All docker commands should be run within WSL2 and not on Windows.**
+1. To open your WSL2 operating system, type wsl in the Windows / Cortana Search Bar and click wsl.
+2. In the WSL2 terminal change into your root user directory by running: `cd ~`
+3. Run explorer.exe . to open up a file browser within WSL2.
+4. Move the frontend project directory into the file browser window
+5. Your project path should now look like this:  **/home/USER/frontend**
+6. Using the WSL2 terminal build your Docker image as you typically would: `docker build -f Dockerfile.dev -t USERNAME:frontend .`
+7. Using the WSL2 terminal, start and run a container. It is very important that you do not use a PWD variable as shown in the lecture video as this will not work. Use the `~` alias for the home directory or type out the full path:<br>
+`docker run -it -p 3000:3000 -v /app/node_modules -v ~/frontend:/app USERNAME:frontend**<br>`
+or<br>
+`docker run -it -p 3000:3000 -v /app/node_modules -v /home/USER/frontend:/app USERNAME:frontend`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

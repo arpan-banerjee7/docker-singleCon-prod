@@ -17,7 +17,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 5. Your project path should now look like this:  **/home/USER/frontend**
 6. Using the WSL2 terminal build your Docker image as you typically would: `docker build -f Dockerfile.dev -t USERNAME:frontend .`
 7. Using the WSL2 terminal, start and run a container. It is very important that you do not use a PWD variable as shown in the lecture video as this will not work. Use the `~` alias for the home directory or type out the full path:<br>
-`docker run -it -p 3000:3000 -v /app/node_modules -v ~/frontend:/app USERNAME:frontend**<br>`
+`docker run -it -p 3000:3000 -v /app/node_modules -v ~/frontend:/app USERNAME:frontend`<br>
 or<br>
 `docker run -it -p 3000:3000 -v /app/node_modules -v /home/USER/frontend:/app USERNAME:frontend`
 

@@ -2,13 +2,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Developed using Docker for Windows running on WSL2 backend. So all the below steps are written as per that.
 
-## Steps to run this project in Production Mode
+## Steps to run this project in Development Mode
 1. Download and configure Docker
 2. Navigate to the root directory of the project
 3. **Run-** `docker build .`
 4. **Run-** `docker run -p 8080:80 [the image id here]`
 
-## Steps to run this project in Developemnet Mode, with hot reloads using docker volumes
+## Steps to run this project in Production Mode, with hot reloads using docker volumes
 **When using WSL2 as a backend for Docker Desktop, the project should be created on or copied directly to the Linux file system. If the project is on the Windows file system, the volumes will likely not work. All docker commands should be run within WSL2 and not on Windows.**
 1. To open your WSL2 operating system, type wsl in the Windows / Cortana Search Bar and click wsl.
 2. In the WSL2 terminal change into your root user directory by running: `cd ~`
